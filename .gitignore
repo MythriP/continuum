@@ -1,0 +1,18 @@
+# environments and secrets
+.venv/
+.env
+
+# runtime state
+var/
+
+# build and tool caches
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# local working notes
+docs/internal/

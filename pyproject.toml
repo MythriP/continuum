@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "continuum"
+version = "0.1.0"
+description = "Durable, verifiable, self-improving agents on Google ADK, with a financial reconciliation reference application."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-adk[db]==2.11.0",   # pinned: resumable agents are experimental upstream
+    "aiosqlite>=0.22",
+    "pydantic>=2.14",
+    "python-dotenv>=1.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.1", "ruff>=0.14"]
+
+[project.scripts]
+reconcile = "reconcile.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+reconcile = ["policy.json", "lessons.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore:\\[EXPERIMENTAL\\]:UserWarning"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = [
+    "E741",   # `l` is the conventional name for a ledger line throughout
+    "B008",   # defaults like Path(...) are evaluated once on purpose
+]
+
+[tool.ruff.lint.per-file-ignores]
+# the investigator prompt: re-wrapping it would change the prompt and invalidate the replay cache
+"src/reconcile/agents.py" = ["E501"]

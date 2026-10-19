@@ -1,0 +1,1103 @@
+{
+  "seed": 7,
+  "synthetic": true,
+  "firm": "Harborline Capital",
+  "custodian": "Meridian Trust & Custody",
+  "breaks": [
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261124-0003",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11240003"
+      ],
+      "custody_line_ids": [
+        "MRD94641177"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross amount; the custodian settled net of the broker commission.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": -11.6
+      },
+      "break_id": "B1124-01",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261124-0084",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11240084"
+      ],
+      "custody_line_ids": [
+        "MRD61921906"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross amount; the custodian settled net of the broker commission.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": 14.0
+      },
+      "break_id": "B1124-02",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "fx_rate_date",
+      "trade_ref": "HLC-20261124-0118",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11240118"
+      ],
+      "custody_line_ids": [
+        "MRD99294283"
+      ],
+      "benign": true,
+      "cause": "Ledger converted at the trade-date EURUSD rate (1.1597); the custodian used the settle-date rate (1.1649).",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "fx_rate",
+        "amount": 1436.36
+      },
+      "break_id": "B1124-03",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "fx_rate_date",
+      "trade_ref": "HLC-20261124-0115",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11240115"
+      ],
+      "custody_line_ids": [
+        "MRD36585799"
+      ],
+      "benign": true,
+      "cause": "Ledger converted at the trade-date GBPUSD rate (1.3401); the custodian used the settle-date rate (1.3359).",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "fx_rate",
+        "amount": -815.03
+      },
+      "break_id": "B1124-04",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "partial_settlement",
+      "trade_ref": "HLC-20261124-0029",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11240029"
+      ],
+      "custody_line_ids": [
+        "MRD92306098",
+        "MRD93351060"
+      ],
+      "benign": true,
+      "cause": "Custodian settled 2160 of 3600 shares on 2026-11-25; the remaining 1440 settled on 2026-11-27.",
+      "resolution": {
+        "action": "await_and_merge",
+        "late_line_id": "MRD93351060",
+        "late_value_date": "2026-11-27"
+      },
+      "break_id": "B1124-05",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "duplicate_booking",
+      "trade_ref": "HLC-20261124-0082",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11240082X"
+      ],
+      "custody_line_ids": [],
+      "benign": true,
+      "related_ledger_ids": [
+        "L11240082"
+      ],
+      "related_custody_line_ids": [
+        "MRD72590981"
+      ],
+      "cause": "The trade was booked twice; the second, manual entry is a duplicate.",
+      "resolution": {
+        "action": "cancel_ledger_line",
+        "ledger_id": "L11240082X"
+      },
+      "break_id": "B1124-06",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "reference_mismatch",
+      "trade_ref": "HLC-20261124-0021",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11240021"
+      ],
+      "custody_line_ids": [
+        "MRD35583179"
+      ],
+      "benign": true,
+      "cause": "Custodian received client reference HLC202611241020 instead of HLC202611240021 (two digits swapped).",
+      "resolution": {
+        "action": "link_reference",
+        "custody_line_id": "MRD35583179"
+      },
+      "break_id": "B1124-07",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "reference_mismatch",
+      "trade_ref": "HLC-20261124-0055",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11240055"
+      ],
+      "custody_line_ids": [
+        "MRD67085086"
+      ],
+      "benign": true,
+      "cause": "Custodian received client reference HLC202611245050 instead of HLC202611240055 (two digits swapped).",
+      "resolution": {
+        "action": "link_reference",
+        "custody_line_id": "MRD67085086"
+      },
+      "break_id": "B1124-08",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261124-0108",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11240108"
+      ],
+      "custody_line_ids": [
+        "MRD27175419"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "break_id": "B1124-09",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261124-0043",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11240043"
+      ],
+      "custody_line_ids": [
+        "MRD47167180"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "break_id": "B1124-10",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "settlement_date",
+      "trade_ref": "HLC-20261124-0140",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L11240140"
+      ],
+      "custody_line_ids": [
+        "MRD43010746"
+      ],
+      "benign": true,
+      "cause": "Manual booking used a naive T+1 date (2026-11-25); the market calendar gives 2026-11-26.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "settle_date",
+        "value": "2026-11-26"
+      },
+      "break_id": "B1124-11",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261124-0113",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11240113"
+      ],
+      "custody_line_ids": [
+        "MRD96861466"
+      ],
+      "benign": true,
+      "also": "fx_rate_date",
+      "cause": "Two causes on one trade: the ledger booked gross of commission AND converted at the trade-date FX rate; the custodian settled net, at the settle-date rate.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": 36.74
+      },
+      "variant": "two_causes",
+      "break_id": "B1124-12",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "reference_mismatch",
+      "trade_ref": "HLC-20261124-0075",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11240075"
+      ],
+      "custody_line_ids": [
+        "MRD84964258"
+      ],
+      "benign": true,
+      "related_ledger_ids": [
+        "L11240057"
+      ],
+      "cause": "The custodian line carries HLC-20261124-0057's reference, a real trade in the same security and quantity, but its cash matches HLC-20261124-0075: two digits of the reference were swapped.",
+      "resolution": {
+        "action": "link_reference",
+        "custody_line_id": "MRD84964258"
+      },
+      "variant": "ambiguous_reference",
+      "break_id": "B1124-13",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261124-0044",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11240044"
+      ],
+      "custody_line_ids": [
+        "MRD53703122"
+      ],
+      "benign": false,
+      "error": "commission_off_schedule",
+      "cause": "The custodian took a commission 0.38 away from the broker's schedule. That is a broker dispute, not a booking fix.",
+      "resolution": {
+        "action": "escalate",
+        "to": "broker"
+      },
+      "variant": "near_miss_fee",
+      "break_id": "B1124-14",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261124-0102",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11240102"
+      ],
+      "custody_line_ids": [
+        "MRD58337875"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "variant": "subtle_lot",
+      "break_id": "B1124-15",
+      "day": "2026-11-24"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261125-0080",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11250080"
+      ],
+      "custody_line_ids": [
+        "MRD68410150"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross amount; the custodian settled net of the broker commission.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": 6.8
+      },
+      "break_id": "B1125-16",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261125-0065",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11250065"
+      ],
+      "custody_line_ids": [
+        "MRD60485796"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross amount; the custodian settled net of the broker commission.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": 5.2
+      },
+      "break_id": "B1125-17",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "fx_rate_date",
+      "trade_ref": "HLC-20261125-0112",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11250112"
+      ],
+      "custody_line_ids": [
+        "MRD22373310"
+      ],
+      "benign": true,
+      "cause": "Ledger converted at the trade-date EURUSD rate (1.1634); the custodian used the settle-date rate (1.1621).",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "fx_rate",
+        "amount": -158.76
+      },
+      "break_id": "B1125-18",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "settlement_date",
+      "trade_ref": "HLC-20261125-0008",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11250008"
+      ],
+      "custody_line_ids": [
+        "MRD99080108"
+      ],
+      "benign": true,
+      "cause": "Manual booking used a naive T+1 date (2026-11-26); the market calendar gives 2026-11-27.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "settle_date",
+        "value": "2026-11-27"
+      },
+      "break_id": "B1125-19",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "settlement_date",
+      "trade_ref": "HLC-20261125-0005",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11250005"
+      ],
+      "custody_line_ids": [
+        "MRD84515014"
+      ],
+      "benign": true,
+      "cause": "Manual booking used a naive T+1 date (2026-11-26); the market calendar gives 2026-11-27.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "settle_date",
+        "value": "2026-11-27"
+      },
+      "break_id": "B1125-20",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "settlement_date",
+      "trade_ref": "HLC-20261125-0025",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11250025"
+      ],
+      "custody_line_ids": [
+        "MRD94650589"
+      ],
+      "benign": true,
+      "cause": "Manual booking used a naive T+1 date (2026-11-26); the market calendar gives 2026-11-27.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "settle_date",
+        "value": "2026-11-27"
+      },
+      "break_id": "B1125-21",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "partial_settlement",
+      "trade_ref": "HLC-20261125-0117",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11250117"
+      ],
+      "custody_line_ids": [
+        "MRD23033582",
+        "MRD36183856"
+      ],
+      "benign": true,
+      "cause": "Custodian settled 2280 of 3800 shares on 2026-11-27; the remaining 1520 settled on 2026-11-30.",
+      "resolution": {
+        "action": "await_and_merge",
+        "late_line_id": "MRD36183856",
+        "late_value_date": "2026-11-30"
+      },
+      "break_id": "B1125-22",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "partial_settlement",
+      "trade_ref": "HLC-20261125-0124",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11250124"
+      ],
+      "custody_line_ids": [
+        "MRD17485029",
+        "MRD45087104"
+      ],
+      "benign": true,
+      "cause": "Custodian settled 2940 of 4900 shares on 2026-11-27; the remaining 1960 settled on 2026-11-30.",
+      "resolution": {
+        "action": "await_and_merge",
+        "late_line_id": "MRD45087104",
+        "late_value_date": "2026-11-30"
+      },
+      "break_id": "B1125-23",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "duplicate_booking",
+      "trade_ref": "HLC-20261125-0006",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11250006X"
+      ],
+      "custody_line_ids": [],
+      "benign": true,
+      "related_ledger_ids": [
+        "L11250006"
+      ],
+      "related_custody_line_ids": [
+        "MRD45534696"
+      ],
+      "cause": "The trade was booked twice; the second, manual entry is a duplicate.",
+      "resolution": {
+        "action": "cancel_ledger_line",
+        "ledger_id": "L11250006X"
+      },
+      "break_id": "B1125-24",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "reference_mismatch",
+      "trade_ref": "HLC-20261125-0128",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11250128"
+      ],
+      "custody_line_ids": [
+        "MRD20440325"
+      ],
+      "benign": true,
+      "cause": "Custodian received client reference HLC202611250218 instead of HLC202611250128 (two digits swapped).",
+      "resolution": {
+        "action": "link_reference",
+        "custody_line_id": "MRD20440325"
+      },
+      "break_id": "B1125-25",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "dividend_withholding",
+      "trade_ref": "HLC-20261125-D004",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L1125D004"
+      ],
+      "custody_line_ids": [
+        "MRD24453712"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross dividend; the custodian paid it net of 15% SE withholding tax.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "withholding_tax",
+        "amount": -49.72
+      },
+      "break_id": "B1125-26",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "dividend_withholding",
+      "trade_ref": "HLC-20261125-D001",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L1125D001"
+      ],
+      "custody_line_ids": [
+        "MRD79206073"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross dividend; the custodian paid it net of 15% FR withholding tax.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "withholding_tax",
+        "amount": -16091.85
+      },
+      "break_id": "B1125-27",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "dividend_withholding",
+      "trade_ref": "HLC-20261125-D002",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L1125D002"
+      ],
+      "custody_line_ids": [
+        "MRD42846574"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross dividend; the custodian paid it net of 15% DE withholding tax.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "withholding_tax",
+        "amount": -454.42
+      },
+      "break_id": "B1125-28",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261125-0029",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11250029"
+      ],
+      "custody_line_ids": [
+        "MRD28576027"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "break_id": "B1125-29",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261125-0092",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11250092"
+      ],
+      "custody_line_ids": [
+        "MRD73813605"
+      ],
+      "benign": true,
+      "also": "fx_rate_date",
+      "cause": "Two causes on one trade: the ledger booked gross of commission AND converted at the trade-date FX rate; the custodian settled net, at the settle-date rate.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": 74.2
+      },
+      "variant": "two_causes",
+      "break_id": "B1125-30",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "reference_mismatch",
+      "trade_ref": "HLC-20261125-0040",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11250040"
+      ],
+      "custody_line_ids": [
+        "MRD57730114"
+      ],
+      "benign": true,
+      "related_ledger_ids": [
+        "L11250004"
+      ],
+      "cause": "The custodian line carries HLC-20261125-0004's reference, a real trade in the same security and quantity, but its cash matches HLC-20261125-0040: two digits of the reference were swapped.",
+      "resolution": {
+        "action": "link_reference",
+        "custody_line_id": "MRD57730114"
+      },
+      "variant": "ambiguous_reference",
+      "break_id": "B1125-31",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261125-0143",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L11250143"
+      ],
+      "custody_line_ids": [
+        "MRD88239956"
+      ],
+      "benign": false,
+      "error": "price",
+      "cause": "Booking error: the ledger price does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "variant": "subtle_cent",
+      "break_id": "B1125-32",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "stamp_duty",
+      "trade_ref": "HLC-20261125-0136",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L11250136"
+      ],
+      "custody_line_ids": [
+        "MRD42034416"
+      ],
+      "benign": true,
+      "cause": "UK purchase booked without 0.5% stamp duty reserve tax; the custodian debited it.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "stamp_duty",
+        "amount": 80.0
+      },
+      "variant": "stamp_duty",
+      "break_id": "B1125-33",
+      "day": "2026-11-25"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261127-0006",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270006"
+      ],
+      "custody_line_ids": [
+        "MRD57372640"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross amount; the custodian settled net of the broker commission.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": 23.0
+      },
+      "break_id": "B1127-34",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261127-0013",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270013"
+      ],
+      "custody_line_ids": [
+        "MRD63807038"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross amount; the custodian settled net of the broker commission.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": -8.0
+      },
+      "break_id": "B1127-35",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "fx_rate_date",
+      "trade_ref": "HLC-20261127-0101",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11270101"
+      ],
+      "custody_line_ids": [
+        "MRD31244456"
+      ],
+      "benign": true,
+      "cause": "Ledger converted at the trade-date EURUSD rate (1.1621); the custodian used the settle-date rate (1.1603).",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "fx_rate",
+        "amount": -384.36
+      },
+      "break_id": "B1127-36",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "fx_rate_date",
+      "trade_ref": "HLC-20261127-0092",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11270092"
+      ],
+      "custody_line_ids": [
+        "MRD32549259"
+      ],
+      "benign": true,
+      "cause": "Ledger converted at the trade-date EURUSD rate (1.1621); the custodian used the settle-date rate (1.1603).",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "fx_rate",
+        "amount": -667.53
+      },
+      "break_id": "B1127-37",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "settlement_date",
+      "trade_ref": "HLC-20261127-0031",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270031"
+      ],
+      "custody_line_ids": [
+        "MRD85367821"
+      ],
+      "benign": true,
+      "cause": "Manual booking used a naive T+1 date (2026-11-28); the market calendar gives 2026-11-30.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "settle_date",
+        "value": "2026-11-30"
+      },
+      "break_id": "B1127-38",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "partial_settlement",
+      "trade_ref": "HLC-20261127-0018",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270018"
+      ],
+      "custody_line_ids": [
+        "MRD86486250",
+        "MRD75411691"
+      ],
+      "benign": true,
+      "cause": "Custodian settled 2520 of 4200 shares on 2026-11-30; the remaining 1680 settled on 2026-12-01.",
+      "resolution": {
+        "action": "await_and_merge",
+        "late_line_id": "MRD75411691",
+        "late_value_date": "2026-12-01"
+      },
+      "break_id": "B1127-39",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "duplicate_booking",
+      "trade_ref": "HLC-20261127-0039",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270039X"
+      ],
+      "custody_line_ids": [],
+      "benign": true,
+      "related_ledger_ids": [
+        "L11270039"
+      ],
+      "related_custody_line_ids": [
+        "MRD26480445"
+      ],
+      "cause": "The trade was booked twice; the second, manual entry is a duplicate.",
+      "resolution": {
+        "action": "cancel_ledger_line",
+        "ledger_id": "L11270039X"
+      },
+      "break_id": "B1127-40",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "reference_mismatch",
+      "trade_ref": "HLC-20261127-0142",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L11270142"
+      ],
+      "custody_line_ids": [
+        "MRD28324032"
+      ],
+      "benign": true,
+      "cause": "Custodian received client reference HLC202611272140 instead of HLC202611270142 (two digits swapped).",
+      "resolution": {
+        "action": "link_reference",
+        "custody_line_id": "MRD28324032"
+      },
+      "break_id": "B1127-41",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "dividend_withholding",
+      "trade_ref": "HLC-20261127-D002",
+      "fund": "HLC-INC",
+      "ledger_ids": [
+        "L1127D002"
+      ],
+      "custody_line_ids": [
+        "MRD63307788"
+      ],
+      "benign": true,
+      "cause": "Ledger booked the gross dividend; the custodian paid it net of 15% IT withholding tax.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "withholding_tax",
+        "amount": -71.73
+      },
+      "break_id": "B1127-42",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261127-0063",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11270063"
+      ],
+      "custody_line_ids": [
+        "MRD32561374"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "break_id": "B1127-43",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261127-0043",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270043"
+      ],
+      "custody_line_ids": [
+        "MRD63549216"
+      ],
+      "benign": false,
+      "error": "price",
+      "cause": "Booking error: the ledger price does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "break_id": "B1127-44",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "commission_netted",
+      "trade_ref": "HLC-20261127-0112",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11270112"
+      ],
+      "custody_line_ids": [
+        "MRD77609935"
+      ],
+      "benign": true,
+      "also": "fx_rate_date",
+      "cause": "Two causes on one trade: the ledger booked gross of commission AND converted at the trade-date FX rate; the custodian settled net, at the settle-date rate.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "commission",
+        "amount": 735.6
+      },
+      "variant": "two_causes",
+      "break_id": "B1127-45",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "reference_mismatch",
+      "trade_ref": "HLC-20261127-0005",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270005"
+      ],
+      "custody_line_ids": [
+        "MRD91514953"
+      ],
+      "benign": true,
+      "related_ledger_ids": [
+        "L11270050"
+      ],
+      "cause": "The custodian line carries HLC-20261127-0050's reference, a real trade in the same security and quantity, but its cash matches HLC-20261127-0005: two digits of the reference were swapped.",
+      "resolution": {
+        "action": "link_reference",
+        "custody_line_id": "MRD91514953"
+      },
+      "variant": "ambiguous_reference",
+      "break_id": "B1127-46",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261127-0012",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270012"
+      ],
+      "custody_line_ids": [
+        "MRD11393121"
+      ],
+      "benign": false,
+      "error": "commission_off_schedule",
+      "cause": "The custodian took a commission 0.12 away from the broker's schedule. That is a broker dispute, not a booking fix.",
+      "resolution": {
+        "action": "escalate",
+        "to": "broker"
+      },
+      "variant": "near_miss_fee",
+      "break_id": "B1127-47",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261127-0055",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11270055"
+      ],
+      "custody_line_ids": [
+        "MRD83337034"
+      ],
+      "benign": false,
+      "error": "price",
+      "cause": "Booking error: the ledger price does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "variant": "subtle_cent",
+      "break_id": "B1127-48",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "stamp_duty",
+      "trade_ref": "HLC-20261127-0091",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11270091"
+      ],
+      "custody_line_ids": [
+        "MRD93372068"
+      ],
+      "benign": true,
+      "cause": "UK purchase booked without 0.5% stamp duty reserve tax; the custodian debited it.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "stamp_duty",
+        "amount": 814.37
+      },
+      "variant": "stamp_duty",
+      "break_id": "B1127-49",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "stamp_duty",
+      "trade_ref": "HLC-20261127-0117",
+      "fund": "HLC-GLEQ",
+      "ledger_ids": [
+        "L11270117"
+      ],
+      "custody_line_ids": [
+        "MRD75030611"
+      ],
+      "benign": true,
+      "cause": "UK purchase booked without 0.5% stamp duty reserve tax; the custodian debited it.",
+      "resolution": {
+        "action": "adjust_ledger",
+        "field": "stamp_duty",
+        "amount": 1345.98
+      },
+      "variant": "stamp_duty",
+      "break_id": "B1127-50",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261127-0080",
+      "fund": "HLC-USSC",
+      "ledger_ids": [
+        "L11270080"
+      ],
+      "custody_line_ids": [
+        "MRD98113601"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "variant": "subtle_lot",
+      "break_id": "B1127-51",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261127-0023",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270023"
+      ],
+      "custody_line_ids": [
+        "MRD97254980"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "variant": "subtle_lot",
+      "break_id": "B1127-52",
+      "day": "2026-11-27"
+    },
+    {
+      "type": "true_error",
+      "trade_ref": "HLC-20261127-0016",
+      "fund": "HLC-USLC",
+      "ledger_ids": [
+        "L11270016"
+      ],
+      "custody_line_ids": [
+        "MRD66490515"
+      ],
+      "benign": false,
+      "error": "quantity",
+      "cause": "Booking error: the ledger quantity does not match the executed trade. No fee, FX, timing or tax explains it.",
+      "resolution": {
+        "action": "escalate",
+        "to": "trade support"
+      },
+      "variant": "subtle_lot",
+      "break_id": "B1127-53",
+      "day": "2026-11-27"
+    }
+  ]
+}

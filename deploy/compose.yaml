@@ -1,0 +1,19 @@
+# Runs the reconcile job in a container, keeping its state in a named volume.
+#   docker compose -f deploy/compose.yaml run --rm reconcile init
+#   docker compose -f deploy/compose.yaml run --rm reconcile work
+#   docker compose -f deploy/compose.yaml run --rm reconcile board
+
+services:
+  reconcile:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: continuum-reconcile:0.1.0
+    env_file:
+      - path: ../.env          # GOOGLE_API_KEY, CONTINUUM_MODEL; see .env.example
+        required: false
+    volumes:
+      - reconcile-state:/app/var
+
+volumes:
+  reconcile-state:

@@ -1,0 +1,2 @@
+line_id,account,client_ref,custodian_ref,txn_type,isin,quantity,settle_currency,cash_amount,direction,value_date,status
+MRD75411691,MTC-448210,HLC202611270018,MTC261127761985,DVP,US0042C5E222,1680,USD,112348.32,DEBIT,2026-12-01,SETTLED

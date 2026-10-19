@@ -1,0 +1,6 @@
+{
+  "_comment": "Harborline Capital reconciliation policy (synthetic). Only sub-cent rounding auto-closes; everything else needs evidence and an analyst's approval.",
+  "auto_close_tolerance": 0.01,
+  "currency_decimals": 2,
+  "escalate_after_business_days": 3
+}
