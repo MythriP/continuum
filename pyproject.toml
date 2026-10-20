@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "continuum"
 version = "0.1.0"
-description = "Durable, verifiable, self-improving agents on Google ADK, with a financial reconciliation reference application."
+description = "Durable, experience-learning agents for long, multi-step workflows that survive crashes. Built on Google ADK."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

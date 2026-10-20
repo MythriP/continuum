@@ -1,6 +1,6 @@
 # Continuum
 
-**Durable, verifiable, self-improving agents on Google ADK.**
+**Durable, experience-learning agents for long, multi-step workflows that survive crashes.** Built on Google ADK.
 
 [![CI](https://github.com/MythriP/continuum/actions/workflows/ci.yml/badge.svg)](https://github.com/MythriP/continuum/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.12%20%7C%203.13-blue)
